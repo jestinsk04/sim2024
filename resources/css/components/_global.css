@@ -1,0 +1,93 @@
+html {
+   
+    height: auto;
+    background:url("https://sigaim.aeriousport.com/build/assets/images/fondo_login_3.svg");
+    @apply bg-primary;
+    &.dark {
+        @apply bg-darkmode-800;
+        body {
+            @apply text-slate-300;
+            *,
+            ::before,
+            ::after {
+                @apply border-white/5;
+            }
+        }
+    }
+    body {
+        @apply antialiased overflow-x-hidden font-roboto text-sm text-slate-800;
+        @include media-breakpoint-down(sm) {
+            @apply px-3;
+        }
+    }
+    .p-20{
+
+        padding:5rem;
+    }
+    .btn{
+        border-radius:100px !important
+    }
+    .btn-primary{
+        background: #275886 !important;
+
+    }
+    .box{
+        border-radius: 21.1625px !important;
+    }
+    .h-128{
+        height: 32rem;
+    }
+    h2{
+
+font-weight: bold;
+font-size: 23.4409px;
+line-height: 28px;
+
+color: #275886;
+    }
+    .nav-button-prev{
+        position: absolute;
+        left: 0px;
+        top: 30%;
+        color: #fff;
+        border: none;
+    }
+    .nav-button-next{
+        position: absolute;
+right: 0px;
+top: 30%;
+color: #fff;
+border: none;
+    }
+    .main-yellow{
+
+        background:url("https://sigaim.aeriousport.com/build/assets/images/fondo-maiz.jpg") !important;
+
+        .btn-primary{
+            background: #FFD542 !important;
+            border: none;
+    
+        }
+        .side-nav{
+            background-color: #FFD542 !important;
+            border-top-left-radius: 44px;
+        }
+        h2{
+            color:#5E5E5E !important;
+        }
+
+
+    }
+    .temario{
+        h2{
+            color:#5E5E5E !important;
+        }
+        .border-temario{
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+    .bck-maiz{
+        background:url("https://sigaim.aeriousport.com/build/assets/images/fondo-maiz.jpg") !important;
+    }
+}

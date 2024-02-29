@@ -1,0 +1,74 @@
+.clear-layout {
+    background-color:#F5F5F5 !important;
+    height:100%;
+
+    @apply relative  bg-white dark:bg-darkmode-600;
+    @include media-breakpoint-down(xl) {
+        @apply bg-primary dark:bg-darkmode-800;
+    }
+    .logo{
+        width:200px;
+    }
+    .center-div{
+        margin-right: 30rem;
+        margin-left: 30rem;
+    }
+    .color-white{
+        color:#ffffff !important
+    }
+    .login__input {
+        max-width: 300px;
+        border-radius: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        @include media-breakpoint-down(xl) {
+            @apply min-w-full;
+        }
+    }
+    .select-country-section{
+        h2{
+            color: #D6D6D6;
+            text-align:left;
+            font-size:35px;
+            font-weight:700;
+            margin-top: 5rem;
+          
+        }
+        h4{
+            color: #5E5E5E;
+            text-align:left;
+            font-size:35px;
+            font-weight:700;
+            line-height: 44px;
+            padding-right: 5rem;
+        }
+        p{
+            color: #5E5E5E;
+            font-weight: 300;
+            font-size: 27px;
+            line-height: 33px;
+        }
+        ul{
+
+        }
+        ul li{
+            font-weight: 700;
+            font-size: 27px;
+            line-height: 33px;
+            
+            color: #275886;
+        }
+
+    }
+    .select-country-section-2{
+        img{
+
+        }
+        input{
+
+        }
+        a{
+            width:200px !important;
+        }
+    }
+}
