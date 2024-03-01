@@ -21,7 +21,7 @@
                         </g>
                     </svg>
     </div>
-    <div class="container sm:px-10" style="min-height: 100vh;">
+    <div class="sm:px-10" style="min-height: 100vh;">
         <div class="block xl:grid grid-cols-12 gap-4 ">
             
             <div class="xl:col-span-12 col-span-12  select-country-section" style="min-height:160px;">
@@ -29,7 +29,7 @@
                     <img alt="" class="logo" src="{{ asset('build/assets/images/logo_polar.png') }}">  
                 </a>
 
-                <a href="{{ route('logout') }}" id="btn-login" style="width:100px;" class="btn btn-primary mt-5 py-3 px-4 xl:mr-3 align-top float-right">Salir</a>
+                <a href="{{ route('logout') }}" id="btn-login" style="width:100px;" class="btn btn-primary mt-10 py-3 px-4 xl:mr-3 align-top float-right">Salir</a>
                 
             </div>
             <div class="xl:col-span-4 col-span-12  select-country-section">
