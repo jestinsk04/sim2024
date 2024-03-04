@@ -25,8 +25,8 @@
         <div class="block xl:grid grid-cols-12 gap-4 ">
             
             <div class="xl:col-span-12 col-span-12  select-country-section" style="min-height:160px;">
-                <a href="" class="-intro-x flex items-center pt-5 float-left" style="background-color: #FFF; padding: 1.25rem; border-radius: 100px; margin-top: 1.25rem;">
-                    <img alt="" class="logo" src="{{ asset('build/assets/images/logo_polar.png') }}">  
+                <a href="" class="-intro-x flex items-center pt-5 float-left" style="padding: 1.25rem; border-radius: 100px; margin-top: 1.25rem;">
+                    <img alt="" class="logo" src="{{ asset('build/assets/images/logo_blanco.png') }}">  
                 </a>
 
                 <a href="{{ route('logout') }}" id="btn-login" style="width:100px;" class="btn btn-primary mt-10 py-3 px-4 xl:mr-3 align-top float-right">Salir</a>
