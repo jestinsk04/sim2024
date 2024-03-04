@@ -1,0 +1,17 @@
+.content {
+    border-radius: 30px;
+    padding: 0px 22px;
+    background: #F9F9FF !important;
+    border-top-left-radius: 0px !important;
+    @apply min-w-0 min-h-screen bg-slate-100 flex-1 pb-10 dark:bg-darkmode-700;
+    @include media-breakpoint-down(md) {
+        @apply px-4 max-w-full;
+    }
+    &:before {
+        content: "";
+        @apply w-full h-px block;
+    }
+    @include media-breakpoint-down(sm) {
+        border-top-left-radius: 30px !important;
+    }
+}

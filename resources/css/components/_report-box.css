@@ -1,0 +1,24 @@
+.report-box {
+    box-shadow: 2.18922px 5.10819px 12.4056px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 21.1625px;
+    @apply relative;
+    &:before {
+        content: "";
+        width: 90%;
+        box-shadow: 0px 3px 20px #0000000b;
+        display:none;
+        @apply bg-slate-50 h-full mt-3 absolute rounded-md mx-auto inset-x-0 dark:bg-darkmode-400/70;
+    }
+    .report-box__icon {
+        width: 28px;
+        height: 28px;
+    }
+    .report-box__indicator {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        @apply flex rounded-full text-white text-xs pr-1 items-center font-medium;
+    }
+    .report-text-success{
+        color:#2778F0!important;
+    }
+}

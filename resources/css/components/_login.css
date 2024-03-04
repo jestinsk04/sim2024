@@ -1,0 +1,54 @@
+.login {
+    background:url("https://sigaim.aeriousport.com/build/assets/images/fondo_login_2.svg");
+    height:100%;
+    padding-top: 10rem !important;
+    @apply relative overflow-hidden bg-white dark:bg-darkmode-600;
+    @include media-breakpoint-down(xl) {
+        @apply bg-primary dark:bg-darkmode-800;
+    }
+    h2{
+        font-size:35px;
+        color:#ffffff;
+        font-weight:400;
+    }
+    h3{
+        color:#ffffff;
+        font-size:35px;
+        font-weight:700;
+    }
+    .center-div{
+        margin-right: 30rem;
+        margin-left: 30rem;
+
+        @include media-breakpoint-down(xl) {
+            margin-right: 20rem;
+            margin-left: 20rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-right: 20rem;
+            margin-left: 20rem;
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin-right: 0rem;
+            margin-left: 0rem;
+        }
+    }
+    .color-white{
+        color:#ffffff !important
+    }
+    .login__input {
+        min-width: 350px;
+        border-radius: 100px;
+        @include media-breakpoint-down(xl) {
+            @apply min-w-full;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        background-size: contain;
+        background-position: center center;
+    }
+
+
+}
