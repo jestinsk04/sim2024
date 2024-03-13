@@ -11,3 +11,6 @@ yarn-error.log
 /.idea
 /.vscode
 yarn.lock
+.env
+composer.json
+.env
