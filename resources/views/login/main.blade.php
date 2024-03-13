@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="intro-x mt-5 xl:mt-8 text-center xl:text-center">
-                        <button id="btn-login" class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top">Ingresar</button>
+                        <button id="btn-login" class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top" style="color: #FFFFFF">Ingresar</button>
                  
                     </div>
                     <div class="intro-x mt-10 xl:mt-4 text-slate-600 dark:text-slate-500 text-center xl:text-center">

@@ -99,6 +99,7 @@ width: 100%;
             }
             .side-nav>ul>li>.side-menu.side-menu--active .side-menu__title {
             font-weight: bold !important;
+            color: #FFF
             }
             .side-nav .side-menu .side-menu__title {
             font-weight: bold;

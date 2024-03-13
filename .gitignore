@@ -1,5 +1,7 @@
 /node_modules
 /public/hot
+/public/build
+/public/storage
 /storage/*.key
 /vendor
 .env.backup
@@ -11,3 +13,6 @@ yarn-error.log
 /.idea
 /.vscode
 yarn.lock
+.env
+composer.json
+.env

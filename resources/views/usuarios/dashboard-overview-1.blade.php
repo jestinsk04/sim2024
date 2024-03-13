@@ -115,26 +115,6 @@
                         </div>
                     </div>
                     <div class="intro-y mt-8 open-grafico" data-item = "salario_minimo">
-                    @if(isset($data['data']["salario_minimo_variacion"]))
-                                                @if($data['data']["salario_minimo_variacion"] != "")
-
-                                                    @if($data['data']["salario_minimo_variacion"]>=0)
-                                                    <div class="report-box__indicator bg-success cursor-pointer indicator-boxes" style="padding-left: 3px;">
-                                                    {{$data['data']["salario_minimo_variacion"]}}% <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="chevron-up" data-lucide="chevron-up" class="lucide lucide-chevron-up w-4 h-4 ml-0.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                                    </div>
-
-                                                    @elseif($data['data']["salario_minimo_variacion"] < 0)
-                                                    <div class="report-box__indicator bg-danger cursor-pointer indicator-boxes" style="padding-left: 3px;">
-                                                    {{$data['data']["salario_minimo_variacion"]}}% <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="chevron-down" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 ml-0.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                                    </div>
-
-                                                    @else
-
-
-                                                    @endif
-
-                                                @endif
-                                            @endif
                         <div class="report-box box zoom-in">
                             <div class=" p-5">
 
@@ -331,26 +311,6 @@
 
 
                     <div class="intro-y mt-8 open-grafico" data-item = "tasa_de_cambio">
-                    @if(isset($data['data']["tasa_cambio_variacion"]))
-                                                @if($data['data']["tasa_cambio_variacion"] != "")
-
-                                                    @if($data['data']["tasa_cambio_variacion"]>=0)
-                                                    <div class="report-box__indicator bg-success cursor-pointer indicator-boxes" style="padding-left: 3px;">
-                                                    {{$data['data']["tasa_cambio_variacion"]}}% <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="chevron-up" data-lucide="chevron-up" class="lucide lucide-chevron-up w-4 h-4 ml-0.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                                    </div>
-
-                                                    @elseif($data['data']["tasa_cambio_variacion"] < 0)
-                                                    <div class="report-box__indicator bg-danger cursor-pointer indicator-boxes" style="padding-left: 3px;">
-                                                    {{$data['data']["tasa_cambio_variacion"]}}% <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="chevron-down" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 ml-0.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                                    </div>
-
-                                                    @else
-
-
-                                                    @endif
-
-                                                @endif
-                                            @endif
                         <div class="report-box box zoom-in">
                             <div class=" p-5">
                             <div class="flex">
@@ -479,26 +439,6 @@
 
 
                     <div class="intro-y mt-8 open-grafico" data-item = "poblacion_activa">
-                    @if(isset($data['data']["poblacion_activa_variacion"]))
-                                                @if($data['data']["poblacion_activa_variacion"] != "")
-
-                                                    @if($data['data']["poblacion_activa_variacion"]>=0)
-                                                    <div class="report-box__indicator bg-success cursor-pointer indicator-boxes" style="padding-left: 3px;">
-                                                    {{$data['data']["poblacion_activa_variacion"]}}% <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="chevron-up" data-lucide="chevron-up" class="lucide lucide-chevron-up w-4 h-4 ml-0.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                                    </div>
-
-                                                    @elseif($data['data']["poblacion_activa_variacion"] < 0)
-                                                    <div class="report-box__indicator bg-danger cursor-pointer indicator-boxes" style="padding-left: 3px;">
-                                                    {{$data['data']["poblacion_activa_variacion"]}}% <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" icon-name="chevron-down" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 ml-0.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                                                    </div>
-
-                                                    @else
-
-
-                                                    @endif
-
-                                                @endif
-                                            @endif
                         <div class="report-box box zoom-in">
                             <div class=" p-5">
 

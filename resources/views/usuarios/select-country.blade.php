@@ -29,7 +29,7 @@
                     <img alt="" class="logo" src="{{ asset('build/assets/images/logo_blanco.png') }}">  
                 </a>
 
-                <a href="{{ route('logout') }}" id="btn-login" style="width:100px;" class="btn btn-primary mt-10 py-3 px-4 xl:mr-3 align-top float-right">Salir</a>
+                <a href="{{ route('logout') }}" id="btn-login" style="width:100px; color:#FFFFFF" class="btn btn-primary mt-10 py-3 px-4 xl:mr-3 align-top float-right">Salir</a>
                 
             </div>
             <div class="xl:col-span-4 col-span-12  select-country-section">
@@ -62,7 +62,7 @@
 </div>
 
 <div class="intro-x mt-5 xl:mt-8 text-left xl:text-left">
-    <button type="submit" id="btn-login" style="max-width:320px;min-width:320px;" class="btn btn-primary py-3 px-4  xl:mr-3 align-top">Ver Información</a>
+    <button type="submit" id="btn-login" style="max-width:320px;min-width:320px;color:#FFFFFF" class="btn btn-primary py-3 px-4  xl:mr-3 align-top">Ver Información</a>
 
 </div>
 </form>
