@@ -91,47 +91,49 @@
                             @endif
                                     </select>
                                 </div>
-
-                                <table class="table table-report mt-4 col-span-6" id="table-categoria">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center whitespace-nowrap">Año</th>
-                                            <th class="text-center whitespace-nowrap">Categoria</th>
-                                            <th class="text-center whitespace-nowrap">Marca</th>
-                                            <th class="text-center whitespace-nowrap">Nombre</th>
-                                            <th class="text-center whitespace-nowrap">Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="categoria-content-1">
-
-                        @if(count($data['data_categorias']) > 0)
-                            @foreach($data['data_categorias'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->ano}}</td>
-                                <td class="text-center">{{$value->nombre_tipo}}</td>
-                                <td class="text-center">@if($value->nombre_tipo_2 != ""){{$value->nombre_tipo_2}}@endif</td>
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                            @str_contains($value->url, 'app.powerbi.com')
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
-
-                                            @else
-
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
-
-                                            @endstr_contains
-
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-                                     
-                                      
-
-                                    </tbody>
-                                </table>
+                                <div class="overflow-x-auto">
+                                    <table class="table table-report mt-4 col-span-6" id="table-categoria">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center whitespace-nowrap">Año</th>
+                                                <th class="text-center whitespace-nowrap">Categoria</th>
+                                                <th class="text-center whitespace-nowrap">Marca</th>
+                                                <th class="text-center whitespace-nowrap">Nombre</th>
+                                                <th class="text-center whitespace-nowrap">Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="categoria-content-1">
+    
+                            @if(count($data['data_categorias']) > 0)
+                                @foreach($data['data_categorias'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->ano}}</td>
+                                    <td class="text-center">{{$value->nombre_tipo}}</td>
+                                    <td class="text-center">@if($value->nombre_tipo_2 != ""){{$value->nombre_tipo_2}}@endif</td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                                @str_contains($value->url, 'app.powerbi.com')
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
+    
+                                                @else
+    
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
+    
+                                                @endstr_contains
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                                         
+                                          
+    
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
                             </div>
                         </div>
 
@@ -180,44 +182,46 @@
                             @endif
                                         </select>
                                     </div>
-
-                                    <table class="table table-report mt-4 col-span-6" id="table-categorias-old">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center whitespace-nowrap">Año</th>
-                                                <th class="text-center whitespace-nowrap">Categoria</th>
-                                                <th class="text-center whitespace-nowrap">Marca</th>
-                                                <th class="text-center whitespace-nowrap">Nombre</th>
-                                                <th class="text-center whitespace-nowrap">Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                        @if(count($data['data_categorias_old']) > 0)
-                            @foreach($data['data_categorias_old'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->ano}}</td>
-                                <td class="text-center">{{$value->nombre_tipo}}</td>
-                                <td class="text-center">@if($value->nombre_tipo_2 != ""){{$value->nombre_tipo_2}}@endif</td>
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                        <a class="btn btn-primary py-3 px-4 h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-solicitud" data-ano="{{$value->ano}}" data-name="{{$value->name}}" data-categoria="{{$value->nombre_tipo}}" data-file="{{$value->archivo}}" href="javascript:;">
-                                            Solicitar
-                                        </a>
-
+                                    <div class="overflow-x-auto">
+                                        <table class="table table-report mt-4 col-span-6" id="table-categorias-old">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center whitespace-nowrap">Año</th>
+                                                    <th class="text-center whitespace-nowrap">Categoria</th>
+                                                    <th class="text-center whitespace-nowrap">Marca</th>
+                                                    <th class="text-center whitespace-nowrap">Nombre</th>
+                                                    <th class="text-center whitespace-nowrap">Opciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                            @if(count($data['data_categorias_old']) > 0)
+                                @foreach($data['data_categorias_old'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->ano}}</td>
+                                    <td class="text-center">{{$value->nombre_tipo}}</td>
+                                    <td class="text-center">@if($value->nombre_tipo_2 != ""){{$value->nombre_tipo_2}}@endif</td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                            <a class="btn btn-primary py-3 px-4 h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-solicitud" data-ano="{{$value->ano}}" data-name="{{$value->name}}" data-categoria="{{$value->nombre_tipo}}" data-file="{{$value->archivo}}" href="javascript:;">
+                                                Solicitar
+                                            </a>
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                                             
+                                                
+    
+    
+    
+    
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-                                         
-                                            
-
-
-
-
-                                        </tbody>
-                                    </table>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -266,44 +270,46 @@
                             @endif
                                     </select>
                                 </div>
-
-                                <table class="table table-report mt-4 col-span-6" id="table-cliente">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center whitespace-nowrap">Año</th>
-                                            <th class="text-center whitespace-nowrap">Cliente/Canal</th>
-                                            <th class="text-center whitespace-nowrap">Nombre</th>
-                                            <th class="text-center whitespace-nowrap">Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                        @if(count($data['data_cliente']) > 0)
-                            @foreach($data['data_cliente'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->ano}}</td>
-                                <td class="text-center">{{$value->nombre_tipo}}</td>
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                    @str_contains($value->url, 'app.powerbi.com')
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
-                                            @else
-
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
-
-                                            @endstr_contains
-
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-                                     
-                                      
-
-                                    </tbody>
-                                </table>
+                                <div class="overflow-x-auto">
+                                    <table class="table table-report mt-4 col-span-6" id="table-cliente">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center whitespace-nowrap">Año</th>
+                                                <th class="text-center whitespace-nowrap">Cliente/Canal</th>
+                                                <th class="text-center whitespace-nowrap">Nombre</th>
+                                                <th class="text-center whitespace-nowrap">Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+    
+                            @if(count($data['data_cliente']) > 0)
+                                @foreach($data['data_cliente'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->ano}}</td>
+                                    <td class="text-center">{{$value->nombre_tipo}}</td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                        @str_contains($value->url, 'app.powerbi.com')
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
+                                                @else
+    
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
+    
+                                                @endstr_contains
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                                         
+                                          
+    
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
                             </div>
                         </div>
 
@@ -351,43 +357,45 @@
                             @endif
                                         </select>
                                     </div>
-
-                                    <table class="table table-report mt-4 col-span-6" id="table-cliente-old">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center whitespace-nowrap">Año</th>
-                                                <th class="text-center whitespace-nowrap">Cliente/Canal</th>
+                                    <div class="overflow-x-auto">
+                                        <table class="table table-report mt-4 col-span-6" id="table-cliente-old">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center whitespace-nowrap">Año</th>
+                                                    <th class="text-center whitespace-nowrap">Cliente/Canal</th>
+                                                    
+                                                    <th class="text-center whitespace-nowrap">Nombre</th>
+                                                    <th class="text-center whitespace-nowrap">Opciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                            @if(count($data['data_cliente_old']) > 0)
+                                @foreach($data['data_cliente_old'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->ano}}</td>
+                                    <td class="text-center">{{$value->nombre_tipo}}</td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-solicitud" data-ano="{{$value->ano}}" data-name="{{$value->name}}" data-categoria="{{$value->nombre_tipo}}" data-file="{{$value->archivo}}" href="javascript:;">
+                                                Solicitar
+                                            </a>
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                                             
                                                 
-                                                <th class="text-center whitespace-nowrap">Nombre</th>
-                                                <th class="text-center whitespace-nowrap">Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                        @if(count($data['data_cliente_old']) > 0)
-                            @foreach($data['data_cliente_old'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->ano}}</td>
-                                <td class="text-center">{{$value->nombre_tipo}}</td>
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                        <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-solicitud" data-ano="{{$value->ano}}" data-name="{{$value->name}}" data-categoria="{{$value->nombre_tipo}}" data-file="{{$value->archivo}}" href="javascript:;">
-                                            Solicitar
-                                        </a>
-
+    
+    
+    
+    
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-                                         
-                                            
-
-
-
-
-                                        </tbody>
-                                    </table>
+                                    
                                 </div>
                             </div>
                         </div>

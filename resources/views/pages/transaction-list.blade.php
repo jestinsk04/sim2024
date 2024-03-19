@@ -55,70 +55,73 @@
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto 2xl:overflow-visible">
-            <table class="table table-report -mt-2">
-                <thead>
-                    <tr>
-                        <th class="whitespace-nowrap">
-                            <input class="form-check-input" type="checkbox">
-                        </th>
-                        <th class="whitespace-nowrap">INVOICE</th>
-                        <th class="whitespace-nowrap">BUYER NAME</th>
-                        <th class="text-center whitespace-nowrap">STATUS</th>
-                        <th class="whitespace-nowrap">PAYMENT</th>
-                        <th class="text-right whitespace-nowrap">
-                            <div class="pr-16">TOTAL TRANSACTION</div>
-                        </th>
-                        <th class="text-center whitespace-nowrap">ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (array_slice($fakers, 0, 9) as $faker)
-                        <tr class="intro-x">
-                            <td class="w-10">
+            <div class="overflow-x-auto">
+                <table class="table table-report -mt-2">
+                    <thead>
+                        <tr>
+                            <th class="whitespace-nowrap">
                                 <input class="form-check-input" type="checkbox">
-                            </td>
-                            <td class="w-40 !py-4">
-                                <a href="" class="underline decoration-dotted whitespace-nowrap">{{ '#INV-' . $faker['totals'][0] . '807556' }}</a>
-                            </td>
-                            <td class="w-40">
-                                <a href="" class="font-medium whitespace-nowrap">{{ $faker['users'][0]['name'] }}</a>
-                                @if ($faker['true_false'][0])
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">Ohio, Ohio</div>
-                                @else
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">California, LA</div>
-                                @endif
-                            </td>
-                            <td class="text-center">
-                                <div class="flex items-center justify-center whitespace-nowrap {{ $faker['true_false'][0] ? 'text-success' : 'text-pending' }}">
-                                    <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $faker['true_false'][0] ? 'Completed' : 'Pending Payment' }}
-                                </div>
-                            </td>
-                            <td>
-                                @if ($faker['true_false'][0])
-                                    <div class="whitespace-nowrap">Direct bank transfer</div>
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">25 March, 12:55</div>
-                                @else
-                                    <div class="whitespace-nowrap">Checking payments</div>
-                                    <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">30 March, 11:00</div>
-                                @endif
-                            </td>
-                            <td class="w-40 text-right">
-                                <div class="pr-16">${{ $faker['totals'][0] . ',000,00' }}</div>
-                            </td>
-                            <td class="table-report__action">
-                                <div class="flex justify-center items-center">
-                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="javascript:;">
-                                        <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> View Details
-                                    </a>
-                                    <a class="flex items-center text-primary whitespace-nowrap" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal">
-                                        <i data-lucide="arrow-left-right" class="w-4 h-4 mr-1"></i> Change Status
-                                    </a>
-                                </div>
-                            </td>
+                            </th>
+                            <th class="whitespace-nowrap">INVOICE</th>
+                            <th class="whitespace-nowrap">BUYER NAME</th>
+                            <th class="text-center whitespace-nowrap">STATUS</th>
+                            <th class="whitespace-nowrap">PAYMENT</th>
+                            <th class="text-right whitespace-nowrap">
+                                <div class="pr-16">TOTAL TRANSACTION</div>
+                            </th>
+                            <th class="text-center whitespace-nowrap">ACTIONS</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (array_slice($fakers, 0, 9) as $faker)
+                            <tr class="intro-x">
+                                <td class="w-10">
+                                    <input class="form-check-input" type="checkbox">
+                                </td>
+                                <td class="w-40 !py-4">
+                                    <a href="" class="underline decoration-dotted whitespace-nowrap">{{ '#INV-' . $faker['totals'][0] . '807556' }}</a>
+                                </td>
+                                <td class="w-40">
+                                    <a href="" class="font-medium whitespace-nowrap">{{ $faker['users'][0]['name'] }}</a>
+                                    @if ($faker['true_false'][0])
+                                        <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">Ohio, Ohio</div>
+                                    @else
+                                        <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">California, LA</div>
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    <div class="flex items-center justify-center whitespace-nowrap {{ $faker['true_false'][0] ? 'text-success' : 'text-pending' }}">
+                                        <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $faker['true_false'][0] ? 'Completed' : 'Pending Payment' }}
+                                    </div>
+                                </td>
+                                <td>
+                                    @if ($faker['true_false'][0])
+                                        <div class="whitespace-nowrap">Direct bank transfer</div>
+                                        <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">25 March, 12:55</div>
+                                    @else
+                                        <div class="whitespace-nowrap">Checking payments</div>
+                                        <div class="text-slate-500 text-xs whitespace-nowrap mt-0.5">30 March, 11:00</div>
+                                    @endif
+                                </td>
+                                <td class="w-40 text-right">
+                                    <div class="pr-16">${{ $faker['totals'][0] . ',000,00' }}</div>
+                                </td>
+                                <td class="table-report__action">
+                                    <div class="flex justify-center items-center">
+                                        <a class="flex items-center text-primary whitespace-nowrap mr-5" href="javascript:;">
+                                            <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> View Details
+                                        </a>
+                                        <a class="flex items-center text-primary whitespace-nowrap" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal">
+                                            <i data-lucide="arrow-left-right" class="w-4 h-4 mr-1"></i> Change Status
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
         <!-- END: Data List -->
         <!-- BEGIN: Pagination -->

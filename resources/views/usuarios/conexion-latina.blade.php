@@ -141,56 +141,59 @@
 
                 </div>
                 <div class="intro-y col-span-12 overflow-auto lg:overflow-visible mt-8">
-                    <table class="table table-report mt-4" id="datatable-1">
-                        <thead>
-                            <tr>
-                                <th class="whitespace-nowrap">Año</th>
-                                <th class="whitespace-nowrap">Q</th>
-                                <th class="text-center whitespace-nowrap">Tema</th>
-                                
-                                <th class="text-center whitespace-nowrap">Objetivo</th>
-                                <th class="text-center whitespace-nowrap">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        @if(count($data['conexion_latina_2']) > 0)
-                            @foreach($data['conexion_latina_2'] as $key => $value)
-
-
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->ano}}</td>
-                                <td class="text-center">{{$value->quarter}}</td>
-                                <td class="text-center">{{$value->tema}}</td>
-                              
-                                <td class="text-center">{{$value->objetivo}}</td>
-                                
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                    @str_contains($value->url, 'app.powerbi.com')
-                                            <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top power-viewer" data-file="{{$value->url}}">Ver</button>
-                                            
-                                            @else
-
-                                            <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}">Ver</button>
-
-                                            @endstr_contains
-                                    </div>
-                                </td>
-                            </tr>
-
-
-
-                            @endforeach
-                    @endif
-
-
-                           
-
-
-
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto">
+                        <table class="table table-report mt-4" id="datatable-1">
+                            <thead>
+                                <tr>
+                                    <th class="whitespace-nowrap">Año</th>
+                                    <th class="whitespace-nowrap">Q</th>
+                                    <th class="text-center whitespace-nowrap">Tema</th>
+                                    
+                                    <th class="text-center whitespace-nowrap">Objetivo</th>
+                                    <th class="text-center whitespace-nowrap">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+    
+                            @if(count($data['conexion_latina_2']) > 0)
+                                @foreach($data['conexion_latina_2'] as $key => $value)
+    
+    
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->ano}}</td>
+                                    <td class="text-center">{{$value->quarter}}</td>
+                                    <td class="text-center">{{$value->tema}}</td>
+                                  
+                                    <td class="text-center">{{$value->objetivo}}</td>
+                                    
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                        @str_contains($value->url, 'app.powerbi.com')
+                                                <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top power-viewer" data-file="{{$value->url}}">Ver</button>
+                                                
+                                                @else
+    
+                                                <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}">Ver</button>
+    
+                                                @endstr_contains
+                                        </div>
+                                    </td>
+                                </tr>
+    
+    
+    
+                                @endforeach
+                        @endif
+    
+    
+                               
+    
+    
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -202,49 +205,52 @@
 
                 </div>
                 <div class="intro-y col-span-12 overflow-auto lg:overflow-visible mt-8">
-                    <table class="table table-report mt-4" id="datatable-2">
-                        <thead>
-                            <tr>
-                                <th class="whitespace-nowrap">Año</th>
-                                <th class="whitespace-nowrap">Nombre</th>
-                                <th class="text-center whitespace-nowrap">Orientación</th>
-                                
-                                <th class="text-center whitespace-nowrap">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @if(count($data['conexion_latina_3']) > 0)
-                            @foreach($data['conexion_latina_3'] as $key => $value)
-
-
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->ano}}</td>
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="text-center">{{$value->objetivo}}</td>
-                               
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                    @str_contains($value->url, 'app.powerbi.com')
-                                            <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top power-viewer" data-file="{{$value->url}}">Ver</button>
-                                            
-                                            @else
-
-                                            <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}">Ver</button>
-
-                                            @endstr_contains
-                                    </div>
-                                </td>
-                            </tr>
-
-
-
-                            @endforeach
-                    @endif
-
-
-
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto">
+                        <table class="table table-report mt-4" id="datatable-2">
+                            <thead>
+                                <tr>
+                                    <th class="whitespace-nowrap">Año</th>
+                                    <th class="whitespace-nowrap">Nombre</th>
+                                    <th class="text-center whitespace-nowrap">Orientación</th>
+                                    
+                                    <th class="text-center whitespace-nowrap">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @if(count($data['conexion_latina_3']) > 0)
+                                @foreach($data['conexion_latina_3'] as $key => $value)
+    
+    
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->ano}}</td>
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="text-center">{{$value->objetivo}}</td>
+                                   
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                        @str_contains($value->url, 'app.powerbi.com')
+                                                <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top power-viewer" data-file="{{$value->url}}">Ver</button>
+                                                
+                                                @else
+    
+                                                <button class="btn btn-primary py-3 px-4 w-32 xl:w-32 xl:mr-3 align-top pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}">Ver</button>
+    
+                                                @endstr_contains
+                                        </div>
+                                    </td>
+                                </tr>
+    
+    
+    
+                                @endforeach
+                        @endif
+    
+    
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
 

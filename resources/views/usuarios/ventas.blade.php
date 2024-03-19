@@ -234,38 +234,40 @@ table.dataTable.compact tbody tr td.order_id {
                                             @endif
                                     </select>
                                 </div>
-
-                                <table class="table table-report mt-4 col-span-6" id="table-total-pais">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center whitespace-nowrap">Categoria</th>
-                                            <th class="text-center whitespace-nowrap">Volumen (Ton)</th>
-                                            <th class="text-center whitespace-nowrap">Valor(COP)</th>
-                                            <th class="text-center whitespace-nowrap">$COP/KG</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    @if(count($data['ventas_3']) > 0)
-                            @foreach($data['ventas_3'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->categoria}}</td>
-                                <td class="text-center">{{number_format($value->volumen,"2",",",".")}}</td>
-                                <td class="text-center">{{number_format($value->valor,"2",",",".")}}</td>
-                                <td class="text-center">{{number_format($value->valor_2,"2",",",".")}}</td>
+                                <div class="overflow-x-auto">
+                                    <table class="table table-report mt-4 col-span-6" id="table-total-pais">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center whitespace-nowrap">Categoria</th>
+                                                <th class="text-center whitespace-nowrap">Volumen (Ton)</th>
+                                                <th class="text-center whitespace-nowrap">Valor(COP)</th>
+                                                <th class="text-center whitespace-nowrap">$COP/KG</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
     
-                            </tr>
-                            @endforeach
-                        @endif
-                                       
-                                      
-                                      
-                                       
-
-
-
-                                    </tbody>
-                                </table>
+                                        @if(count($data['ventas_3']) > 0)
+                                @foreach($data['ventas_3'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->categoria}}</td>
+                                    <td class="text-center">{{number_format($value->volumen,"2",",",".")}}</td>
+                                    <td class="text-center">{{number_format($value->valor,"2",",",".")}}</td>
+                                    <td class="text-center">{{number_format($value->valor_2,"2",",",".")}}</td>
+        
+                                </tr>
+                                @endforeach
+                            @endif
+                                           
+                                          
+                                          
+                                           
+    
+    
+    
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
                             </div>
 
                     
@@ -305,41 +307,43 @@ table.dataTable.compact tbody tr td.order_id {
             @endif
     </select>
 </div>
-
-<table class="table table-report mt-4 col-span-12" id="table-total-regiones" style="width:100% !important">
-    <thead>
-        <tr>
+<div class="overflow-x-auto">
+    <table class="table table-report mt-4 col-span-12" id="table-total-regiones" style="width:100% !important">
+        <thead>
+            <tr>
+              
+                <th class="text-center whitespace-nowrap">Departamento/Región</th>
+                <th class="text-center whitespace-nowrap">Categoria</th>
+                <th class="text-center whitespace-nowrap">Marca</th>
+                
+                <th class="text-center whitespace-nowrap">Volumen (Ton)</th>
+                <th class="text-center whitespace-nowrap">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+        @if(count($data['ventas_2']) > 0)
+    @foreach($data['ventas_2'] as $key => $value)
+    <tr data-color="{{$value->color}}" data-region="{{$value->region}}" class="intro-x">
+    <td class="text-center">{{$value->region}}</td>
+    <td class="text-center">{{$value->categoria}}</td>
+    <td class="text-center">{{$value->marca}}</td>
+    <td class="text-center">{{number_format($value->ventas_netas_toneladas,"2",",",".")}}</td>
+    <td class="text-center">{{number_format($value->ventas_netas,"2",",",".")}}</td>
+    </tr>
+    @endforeach
+    @endif
+           
           
-            <th class="text-center whitespace-nowrap">Departamento/Región</th>
-            <th class="text-center whitespace-nowrap">Categoria</th>
-            <th class="text-center whitespace-nowrap">Marca</th>
-            
-            <th class="text-center whitespace-nowrap">Volumen (Ton)</th>
-            <th class="text-center whitespace-nowrap">Valor</th>
-        </tr>
-    </thead>
-    <tbody>
+          
+           
+    
+    
+    
+        </tbody>
+    </table>
+</div>
 
-    @if(count($data['ventas_2']) > 0)
-@foreach($data['ventas_2'] as $key => $value)
-<tr data-color="{{$value->color}}" data-region="{{$value->region}}" class="intro-x">
-<td class="text-center">{{$value->region}}</td>
-<td class="text-center">{{$value->categoria}}</td>
-<td class="text-center">{{$value->marca}}</td>
-<td class="text-center">{{number_format($value->ventas_netas_toneladas,"2",",",".")}}</td>
-<td class="text-center">{{number_format($value->ventas_netas,"2",",",".")}}</td>
-</tr>
-@endforeach
-@endif
-       
-      
-      
-       
-
-
-
-    </tbody>
-</table>
 </div>
 
                         

@@ -32,6 +32,7 @@
                         <h2 class="text-lg font-medium truncate mr-5">Informes</h2>
                     </div>
                 </div>
+                <div class="overflow-x-auto">
                     <table class="table table-report -mt-2" id="table-informes">
                         <thead>
                             <tr>
@@ -73,6 +74,8 @@
                                 </tbody>
                     </table>
                 </div>
+                    
+                </div>
             </div>
 
 
@@ -93,41 +96,44 @@
 
 
                 <div class="col-span-12 sm:col-span-6">
-                <table class="table table-report -mt-2" id="table-total-consumo-masivo">
-                        <thead>
-                            <tr>
-                                <th class="whitespace-nowrap">Categoria</th>
-                       @if(count($data['valoracion_mercado_2_anos']) > 0)
-                            @foreach($data['valoracion_mercado_2_anos'] as $key => $value)
-                            <th class="whitespace-nowrap">{{$value->ano}}</th>
-                            @endforeach
-                        @endif
-                           
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        @if(count($data['valoracion_mercado_2_names']) > 0)
-                            @foreach($data['valoracion_mercado_2_names'] as $key => $value)
-                            <tr class="intro-x">
+                    <div class="overflow-x-auto">
+                        <table class="table table-report -mt-2" id="table-total-consumo-masivo">
+                            <thead>
+                                <tr>
+                                    <th class="whitespace-nowrap">Categoria</th>
+                           @if(count($data['valoracion_mercado_2_anos']) > 0)
+                                @foreach($data['valoracion_mercado_2_anos'] as $key => $value)
+                                <th class="whitespace-nowrap">{{$value->ano}}</th>
+                                @endforeach
+                            @endif
                                
-                                    <td class="">{{$value->name}}</td>
-                        @if(count($data['valoracion_mercado_2_anos']) > 0)
-                            @foreach($data['valoracion_mercado_2_anos'] as $key2 => $value2)
-                            <td class="">{{$data['valoracion_mercado_2_data'][$value2->ano][$value->name]['dato'] ?? 0}}%</td>
-                            @endforeach
-                        @endif
-                                    
                                 </tr>
-                            @endforeach
-                        @endif
-                                
-                               
-                             
-                               
-                    
-                                </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+    
+                            @if(count($data['valoracion_mercado_2_names']) > 0)
+                                @foreach($data['valoracion_mercado_2_names'] as $key => $value)
+                                <tr class="intro-x">
+                                   
+                                        <td class="">{{$value->name}}</td>
+                            @if(count($data['valoracion_mercado_2_anos']) > 0)
+                                @foreach($data['valoracion_mercado_2_anos'] as $key2 => $value2)
+                                <td class="">{{$data['valoracion_mercado_2_data'][$value2->ano][$value->name]['dato'] ?? 0}}%</td>
+                                @endforeach
+                            @endif
+                                        
+                                    </tr>
+                                @endforeach
+                            @endif
+                                    
+                                   
+                                 
+                                   
+                        
+                                    </tbody>
+                        </table>
+                    </div>
+                
                 </div>
 
                 </div>
@@ -155,30 +161,33 @@
 
 
                <div class="col-span-12 sm:col-span-6 ">
-               <table class="table table-report -mt-2" id="table-categorias-mercado">
-                       <thead>
-                           <tr>
-                               <th class="whitespace-nowrap">Categorias</th>
-                               <th class="whitespace-nowrap">MMBs</th>
-                               <th class=" whitespace-nowrap">%</th>
-                               
-                           </tr>
-                       </thead>
-                       <tbody>
-
-                       @if(count($data['grafico2_data_grafico']) > 0)
-                            @foreach($data['grafico2_data_grafico'] as $key => $value)
-                            <tr class="intro-x">
-                                    <td class="">{{$value->name}}</td>
-                                    <td class="">{{$value->dato}}</td>
-                                    <td class="">{{$value->porcentaje*100}}%</td>
-                                  
-                                </tr>
-                            @endforeach
-                        @endif
-                   
-                               </tbody>
-                   </table>
+                <div class="overflow-x-auto">
+                    <table class="table table-report -mt-2" id="table-categorias-mercado">
+                        <thead>
+                            <tr>
+                                <th class="whitespace-nowrap">Categorias</th>
+                                <th class="whitespace-nowrap">MMBs</th>
+                                <th class=" whitespace-nowrap">%</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+ 
+                        @if(count($data['grafico2_data_grafico']) > 0)
+                             @foreach($data['grafico2_data_grafico'] as $key => $value)
+                             <tr class="intro-x">
+                                     <td class="">{{$value->name}}</td>
+                                     <td class="">{{$value->dato}}</td>
+                                     <td class="">{{$value->porcentaje*100}}%</td>
+                                   
+                                 </tr>
+                             @endforeach
+                         @endif
+                    
+                                </tbody>
+                    </table>
+                </div>
+               
                </div>
 
                </div>

@@ -48,43 +48,45 @@
                             @endif
                         </select>
                     </div>
-
-                    <table class="table table-report mt-4 col-span-6" id="datatable">
-                        <thead>
-                            <tr>
-                                <th class="text-center whitespace-nowrap">Nombre</th>
-                                <th class="text-center whitespace-nowrap">Año</th>
-                                <th class="text-center whitespace-nowrap">Descripcion</th>
-                                <th class="text-center whitespace-nowrap">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="datatable-elements">
-
-                        @if(count($data['data']) > 0)
-                            @foreach($data['data'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="text-center">{{$value->year}}</td>
-                                <td class="text-center">{{$value->description}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                            @str_contains($value->url, 'app.powerbi.com')
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
-                                            @else
-
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
-
-                                            @endstr_contains
-                                        
-
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto">
+                        <table class="table table-report mt-4 col-span-6" id="datatable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center whitespace-nowrap">Nombre</th>
+                                    <th class="text-center whitespace-nowrap">Año</th>
+                                    <th class="text-center whitespace-nowrap">Descripcion</th>
+                                    <th class="text-center whitespace-nowrap">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="datatable-elements">
+    
+                            @if(count($data['data']) > 0)
+                                @foreach($data['data'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="text-center">{{$value->year}}</td>
+                                    <td class="text-center">{{$value->description}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                                @str_contains($value->url, 'app.powerbi.com')
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
+                                                @else
+    
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
+    
+                                                @endstr_contains
+                                            
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
 

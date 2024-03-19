@@ -49,7 +49,7 @@
             @endif
         </select>
     </div>
-
+    <div class="overflow-x-auto">
     <table class="table table-report mt-4 col-span-6" id="table-data">
         <thead>
             <tr>
