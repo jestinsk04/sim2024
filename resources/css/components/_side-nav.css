@@ -179,7 +179,7 @@ padding: 30px 30px;
         & > li {
             & > .side-menu {
                 &.side-menu--active {
-                    @apply bg-orangeP dark:bg-orangeP;
+                    @apply bg-orangeP dark:bg-darkmode-700;
                     &:before {
                         content: "";
                         width: 30px;
@@ -205,10 +205,10 @@ padding: 30px 30px;
                         &:before {
                             content: "";
                             z-index: -1;
-                            @apply absolute top-0 right-0 -mr-5 w-12 h-full bg-orangeP dark:bg-orangeP;
+                            @apply absolute top-0 right-0 -mr-5 w-12 h-full bg-orangeP dark:bg-darkmode-700;
                         }
                     }
-                    .side-menu__title { 
+                    .side-menu__title {
                         @apply text-white font-medium dark:text-slate-300;
                     }
                 }

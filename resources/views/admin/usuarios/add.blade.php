@@ -334,6 +334,18 @@
                                             <div class="form-check mt-2"
                                                 style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
 
+                                                <label class="form-check-label"
+                                                    for="checkbox-switch-1">Continuos - Bebidas</label>
+
+                                                <input id="checkbox-switch-1" style="position: absolute; left: 400px;"
+                                                    class="form-check-input"
+                                                    name="accesos[{{ $value->name }}][analisis][continuos]"
+                                                    type="checkbox" value="continuos">
+                                            </div>
+
+                                            <div class="form-check mt-2"
+                                                style="padding-bottom: 10px; border-bottom: 1px solid #ccc;">
+
                                                 <label class="form-check-label" for="checkbox-switch-1">Otros</label>
 
                                                 <input id="checkbox-switch-1" style="position: absolute; left: 400px;"

@@ -1512,6 +1512,11 @@ if ($("#hogares-por-numero-de-personas").length) {
             },
             options: {
                 maintainAspectRatio: false,
+                layout: {
+            padding: {
+                right: 20 // or however much padding you need
+            }
+        },
                 plugins: {
                     legend: {
                         display: true,
@@ -1528,6 +1533,7 @@ if ($("#hogares-por-numero-de-personas").length) {
                 },
                 scales: {
                     x: {
+                        padding: 20,
                         ticks: {
                             font: {
                                 size: 12,

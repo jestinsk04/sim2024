@@ -130,6 +130,7 @@ class DataController extends Controller
         $precios_comodities = $result->sheetData['PRECIOS-COMMODITIES'];
         $precios_compra_maiz = $result->sheetData['PRECIOS-COMPRA-MAIZ'];
         $precios_informes = $result->sheetData['PRECIOS-INFORMES'];
+        $continuos_informes = $result->sheetData['CONTINUOS'];
 
 
 
@@ -3183,6 +3184,7 @@ class DataController extends Controller
                         $object->seccion = "ventas-1";
                         $object->ano = date("Y", $object->fecha);
                         $object->fecha_formato = date("Y-m-d", $object->fecha);
+                        $object->fecha_actualizacion = date("d/m/Y", $object->fecha);
 
                         //dd($object->fecha);
                         
@@ -3197,7 +3199,7 @@ class DataController extends Controller
 
         if(count($find_country) > 0){
 
-            $find_data = DB::table('ventas')->where('pais', $find_country[0]->id)->where('name', $object->nombre)->where('ano', $object->ano)->where('seccion', $object->seccion)->get();
+            $find_data = DB::table('ventas')->where('pais', $find_country[0]->id)->where('name', $object->nombre)->where('fecha_actualizacion', $object->fecha_actualizacion)->where('seccion', $object->seccion)->get();
 
             if(count($find_data) > 0){
 
@@ -3211,6 +3213,7 @@ class DataController extends Controller
                     'seccion'=>$object->seccion,
                     'pais_name'=>$find_country[0]->name,
                     'fuente'=>$object->fuente,
+                    'fecha_actualizacion'=>$object->fecha_actualizacion,
                     'updated_at' => date('Y-m-d H:i:s')
               
                 );
@@ -3232,6 +3235,7 @@ class DataController extends Controller
                     'seccion'=>$object->seccion,
                     'pais_name'=>$find_country[0]->name,
                     'fuente'=>$object->fuente,
+                    'fecha_actualizacion'=>$object->fecha_actualizacion,
                      'created_at' => date('Y-m-d H:i:s'),
              
                    ]);
@@ -4957,6 +4961,110 @@ class DataController extends Controller
                                $notificacion = DB::table('notificaciones')->insertGetId([
                                 'title'=>"Nueva Data",
                                 'description'=>"Se agrego nueva data en Precios Informes",
+                                'pais'=>$find_country[0]->id,
+                                'pais_name'=>$find_country[0]->name,
+                                'created_at' => date('Y-m-d H:i:s'),
+                         
+                               ]);
+            
+            
+            
+            
+            
+            
+            
+                        }
+            
+            
+            
+            
+            
+            
+            
+            
+                    }
+            
+            
+                                    }
+
+
+            }
+
+
+
+
+
+        }
+
+
+        if(count($continuos_informes) > 0){
+
+            foreach($continuos_informes as $key => $value){
+
+                $object = new \stdClass();
+                $object->nombre = $value["nombre"];
+                $object->ano = $value["ano"];
+                $object->descripcion = $value["descripcion"];
+                $object->segmento = $value["segmento"];
+                $object->url = $value["url"];
+                $object->pais = $value["pais"];
+                $object->seccion = "continuos-informes";
+
+                if(!empty($object)){
+
+                    $pais_lower = trim(strtolower($object->pais));
+            
+                    $find_country = DB::table('paises')
+                    ->where(DB::raw('lower(name)'), $pais_lower)
+                    ->get();
+            
+                    if(count($find_country) > 0){
+            
+                        $find_data = DB::table('continuos')->where('pais', $find_country[0]->id)->where('ano', $object->ano)->where('nombre', $object->nombre)->where('seccion', $object->seccion)->get();
+            
+                        if(count($find_data) > 0){
+            
+            
+                 
+                            $data_update = array(
+                                'nombre'=>$object->nombre,
+                                'descripcion'=>$object->descripcion,
+                                'segmento'=>$object->segmento,
+                                'url'=>$object->url,
+                                'ano'=>$object->ano,
+                                'seccion'=>$object->seccion,
+                                'pais'=>$find_country[0]->id,
+                                'pais_name'=>$find_country[0]->name,
+                                'updated_at' => date('Y-m-d H:i:s')
+                          
+                            );
+                          
+                          
+                              DB::table('continuos')->where('id', '=', $find_data[0]->id)->update($data_update);
+            
+            
+            
+            
+                        }else{
+            
+            
+                            $id = DB::table('continuos')->insertGetId([
+                                'nombre'=>$object->nombre,
+                                'descripcion'=>$object->descripcion,
+                                'segmento'=>$object->segmento,
+                                'url'=>$object->url,
+                                'ano'=>$object->ano,
+                                'seccion'=>$object->seccion,
+                                'pais'=>$find_country[0]->id,
+                                'pais_name'=>$find_country[0]->name,
+                                'created_at' => date('Y-m-d H:i:s'),
+                         
+                               ]);
+
+
+                               $notificacion = DB::table('notificaciones')->insertGetId([
+                                'title'=>"Nueva Data",
+                                'description'=>"Se agrego nueva data en Continuos",
                                 'pais'=>$find_country[0]->id,
                                 'pais_name'=>$find_country[0]->name,
                                 'created_at' => date('Y-m-d H:i:s'),

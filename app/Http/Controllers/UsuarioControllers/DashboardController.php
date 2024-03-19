@@ -3193,6 +3193,77 @@ class DashboardController extends Controller
             'layout' => 'side-menu'
         ])->with('data', $resultData);
     }
+    public function continuos(Request $request)
+    {
+
+        $data_permisos = array();
+        $data_paises = array();
+        $paises = $this->Paise->paginator();
+        if(Auth::user()->permisos != NULL && Auth::user()->permisos != ""){
+
+            $data_permisos = json_decode(Auth::user()->permisos, true);
+
+        }
+        foreach($paises as $value){
+
+            if(isset($data_permisos[$value->name])){
+                array_push($data_paises, $value->name);
+            }
+
+
+
+        }
+
+        $resultData['permisos'] = $data_permisos;
+        $resultData['paises'] = $data_paises;
+        $resultData['paises_list'] = $paises;
+
+        $pais_selected = session('pais_selected');
+        $data = $this->Paise->data_by_name($pais_selected);
+
+        $country_data = DB::table('data')->where('pais', $data->id)->get();
+
+        $current_year = date("Y");
+
+        if(isset($request->year)){
+
+            $current_year = $request->year;
+
+        }
+
+        $global_data = array();
+        $year_data = array();
+        $segmentos_data = array();
+        
+
+        $global_data = DB::table('continuos')->where('pais', $data->id)->where('seccion', "continuos-informes")->get();
+        $year_data = DB::table('continuos')->where('pais', $data->id)->where('seccion', "continuos-informes")->get()->unique('ano');
+        $segmentos_data = DB::table('continuos')->where('pais', $data->id)->where('seccion', "continuos-informes")->get()->unique('segmento');
+
+
+
+        $notificaciones = DB::table('notificaciones')->where('pais', $data->id)->whereDate('created_at', '>=', Carbon::today()->subDays(2)->toDateString())->orderBy("created_at", "desc")->take(10)->get();
+        $resultData['notificaciones'] = $notificaciones;
+
+        $resultData['pais'] = $data;
+        $resultData['menu'] = "analisis-mercado";
+        $resultData['sub-menu'] = "continuos";
+        $resultData['breadcrumb'] = "Analisis de Mercado";
+        $resultData['breadcrumb2'] = "Continuos - Bebidas";
+        $resultData['data'] = $global_data;
+        $resultData['year_list'] = $year_data;
+        $resultData['segmentos_list'] = $segmentos_data;
+
+
+        // $resultData['colores'] = array("#35495e", "#84cc16", "#facc15","#dc2727", "#fa09e2", "#ff3f00", "#0015ff", "#00ffeb", "#ffc600", "#000000","#5e3549","#5e4a35",  "#495e35", "#355e5e" );
+        return view('usuarios/continuos', [
+            // Specify the base layout.
+            // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
+            // The default value is 'side-menu'
+
+            'layout' => 'side-menu'
+        ])->with('data', $resultData);
+    }
     function generateRandomHexColor($existingColors) {
         $characters = '0123456789ABCDEF';
       
@@ -8124,11 +8195,16 @@ class DashboardController extends Controller
                 $comodities_data_grafico = DB::table('data')->where('item', $item)->where('pais', $data->id)->orderByRaw("STR_TO_DATE(fecha_actualizacion, '%d/%m/%y')")->get();
 
 
-            }else if($item == "DEFICIT FISCAL" || $item == "RESERVAS INTERNACIONALES" || $item == "TASA DE INTERES"){
+            }else if($item == "DEFICIT FISCAL" || $item == "RESERVAS INTERNACIONALES"){
 
                 $comodities_data_labels = DB::table('ventas')->where('name',$item)->where('pais', $data->id)->get()->unique('ano');
                 $comodities_data_grafico = DB::table('ventas')->where('name', $item)->where('pais', $data->id)->get();
                 
+            }else if($item == "TASA DE INTERES"){
+
+                $comodities_data_labels = DB::table('ventas')->where('name',$item)->where('pais', $data->id)->orderByRaw("STR_TO_DATE(fecha_actualizacion, '%d/%m/%y')")->get()->unique('fecha_actualizacion');
+                $comodities_data_grafico = DB::table('ventas')->where('name', $item)->where('pais', $data->id)->orderByRaw("STR_TO_DATE(fecha_actualizacion, '%d/%m/%y')")->get();
+
             }else{
 
                 $comodities_data_labels = DB::table('data')->where('item',$item)->where('pais', $data->id)->get()->unique('ano');
@@ -8148,9 +8224,10 @@ class DashboardController extends Controller
                 foreach($comodities_data_labels as $value){
     
     
-                    if($item == "canasta_alimentaria_normativa" || $item == "tasa_de_cambio" || $item == "diaspora_venezolana"){
+                    
+                    if($item == "canasta_alimentaria_normativa" || $item == "tasa_de_cambio" || $item == "diaspora_venezolana" || $item == "TASA DE INTERES"){
                         setlocale(LC_TIME, 'es_ES.UTF-8');
-                        $formats = ['d/m/y', 'Y-m-d H:i:s'];
+                        $formats = ['d/m/y', 'Y-m-d H:i:s', 'd/m/Y'];
                         $date = false;
                         
                         foreach ($formats as $format) {
@@ -8229,5 +8306,47 @@ class DashboardController extends Controller
         }
 
         // return view('user');
+    }
+    public function filtroContinuos(Request $request){
+
+
+        $current_date = date("Y-m-d");
+        $current_year_categoria = date("Y");
+        $current_categoria = "";
+        $pais_selected = session('pais_selected');
+        $data = $this->Paise->data_by_name($pais_selected);
+        $min_year = date('Y', strtotime($current_date. ' - 2 years'));
+
+        $data_categorias = DB::table('continuos')->where('pais', $data->id)->where('seccion', "continuos-informes")->get();
+
+
+        $current_year = $request->ano ?? "";
+        $current_segmento = $request->segmento ?? "";
+        $pais_id = $data->id;
+
+        if($current_year != "" && $current_segmento != ""){
+
+
+            $data_categorias = DB::table('continuos')->where('pais', $data->id)->where('segmento', $current_segmento)->where('seccion', "continuos-informes")->where("ano", $current_year )->get();
+
+
+        }else if($current_year == "" && $current_segmento != ""){
+
+            $data_categorias = DB::table('continuos')->where('pais', $data->id)->where('segmento', $current_segmento)->where('seccion', "continuos-informes")->get();
+
+
+        }else if($current_year == "" && $current_segmento == ""){
+
+            $data_categorias = DB::table('continuos')->where('pais', $data->id)->where('seccion', "continuos-informes")->get();
+
+        }else if($current_year != "" && $current_segmento == ""){
+
+            $data_categorias = DB::table('continuos')->where('pais', $data->id)->where('ano', $current_year)->where('seccion', "continuos-informes")->get();
+
+        }
+
+        return json_encode($data_categorias);
+
+
     }
 }
