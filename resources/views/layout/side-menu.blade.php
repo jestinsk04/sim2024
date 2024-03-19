@@ -9,7 +9,7 @@
 <div class="flex mt-[4.7rem] md:mt-0">
     <!-- BEGIN: Side Menu -->
     <div class="side-nav-fixed" style="width:360px;">
-    <nav class="side-nav" style="border-top-left-radius: 48px;position:fixed;height: 100%;overflow-y: scroll;background-color:#025091 !important">
+    <nav class="side-nav" style="border-top-left-radius: 48px;position:fixed;height: 100%;overflow-y: scroll;">
      
         <a href="" class="intro-x flex items-center pl-5 pt-4 logo-container">
             <img alt="" class="logo" src="{{ asset('build/assets/images/logo_polar.png') }}">
@@ -263,6 +263,17 @@ border-color: #fff;" name="pais" id="">
                             </div>
                             <div class="side-menu__title">
                                 Segmentaciones
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://sim-ep.com/usuario/continuos?layout=side-menu"
+                            class="side-menu  @if($data['sub-menu'] == 'continuos') sub-menu-selected @endif">
+                            <div class="side-menu__icon">
+
+                            </div>
+                            <div class="side-menu__title">
+                                Continuos - Bebidas
                             </div>
                         </a>
                     </li>
@@ -634,6 +645,19 @@ border-color: #fff;" name="pais" id="">
                             </div>
                             <div class="side-menu__title">
                                 Segmentaciones
+                            </div>
+                        </a>
+                    </li>
+                    @endif
+                    @if(isset($data['permisos'][$data['pais']->name]['analisis']['continuos']))
+                    <li>
+                        <a href="https://sim-ep.com/usuario/continuos?layout=side-menu"
+                            class="side-menu  @if($data['sub-menu'] == 'continuos') sub-menu-selected @endif">
+                            <div class="side-menu__icon">
+
+                            </div>
+                            <div class="side-menu__title">
+                                Continuos - Bebidas
                             </div>
                         </a>
                     </li>

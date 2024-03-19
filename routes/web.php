@@ -141,6 +141,8 @@ Route::group(['prefix' => 'usuario', 'middleware' => ['auth'], 'namespace' => 'U
 
     Route::post('/grafico-kpi', 'DashboardController@graficoKpi')->name('grafico-kpi');
 
+    Route::get('/continuos', 'DashboardController@continuos')->name('continuos');
+    Route::post('/filtro-continuos', 'DashboardController@filtroContinuos')->name('filtro-continuos');
 
 
 });

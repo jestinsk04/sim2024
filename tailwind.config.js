@@ -17,11 +17,8 @@ module.exports = {
         extend: {
             colors: {
                 orangeP:'#ED6C1C',
-                blue:{
-                    primary: '#025091'
-                },
+                blueP: '#025091',
                 rgb: toRGB({
-                    primary: '#025091',
                     inherit: colors.inherit,
                     current: colors.current,
                     transparent: colors.transparent,
@@ -73,7 +70,7 @@ module.exports = {
                     500: withOpacityValue("--color-slate-500"),
                     600: withOpacityValue("--color-slate-600"),
                     700: withOpacityValue("--color-slate-700"),
-                    800: '#025091',
+                    800: withOpacityValue("--color-slate-800"),
                     900: withOpacityValue("--color-slate-900"),
                 },
                 darkmode: {

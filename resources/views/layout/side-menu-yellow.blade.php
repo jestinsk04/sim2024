@@ -266,6 +266,17 @@ border-color: #fff;" name="pais" id="">
                         </a>
                     </li>
                     <li>
+                        <a href="https://sim-ep.com/usuario/continuos?layout=side-menu"
+                            class="side-menu  @if($data['sub-menu'] == 'continuos') sub-menu-selected @endif">
+                            <div class="side-menu__icon">
+
+                            </div>
+                            <div class="side-menu__title">
+                                Continuos - Bebidas
+                            </div>
+                        </a>
+                    </li>
+                    <li>
                         <a href="https://sim-ep.com/usuario/analisis-otros?layout=side-menu"
                             class="side-menu @if($data['sub-menu'] == 'analisis-otros') sub-menu-selected @endif">
                             <div class="side-menu__icon">
@@ -637,6 +648,17 @@ border-color: #fff;" name="pais" id="">
                         </a>
                     </li>
                     @endif
+                    <li>
+                        <a href="https://sim-ep.com/usuario/continuos?layout=side-menu"
+                            class="side-menu  @if($data['sub-menu'] == 'continuos') sub-menu-selected @endif">
+                            <div class="side-menu__icon">
+
+                            </div>
+                            <div class="side-menu__title">
+                                Continuos - Bebidas
+                            </div>
+                        </a>
+                    </li>
                     @if(isset($data['permisos'][$data['pais']->name]['analisis']['otros']))
                     <li>
                         <a href="https://sim-ep.com/usuario/analisis-otros?layout=side-menu"
