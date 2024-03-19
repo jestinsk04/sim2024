@@ -1,7 +1,7 @@
 @extends('../layout/base')
 
 @section('body')
-    <body class="p-5 side-menu-open">
+    <body class="p-5 side-menu-open" style="background-color: #025091 !important>
         @yield('content')
 
 
