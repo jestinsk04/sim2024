@@ -54,38 +54,40 @@
                             @endif
                         </select>
                     </div>
-
-                    <table class="table table-report mt-4 col-span-6" id="datatable">
-                        <thead>
-                            <tr>
-                                <th class="text-center whitespace-nowrap">Año</th>
-                                <th class="text-center whitespace-nowrap">Nombre</th>
-                                <th class="text-center whitespace-nowrap">Descripcion</th>
-                                <th class="text-center whitespace-nowrap">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="datatable-elements">
-
-                        @if(count($data['data']) > 0)
-                            @foreach($data['data'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->periodo}}</td>
-                                <td class="text-center">{{$value->nombre}}</td>
-                                <td class="text-center">{{$value->descripcion}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                        <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 pdf-viewer" data-tipo="{{$value->tipo}}" data-file="{{$value->url}}" href="javascript:;">
-                                            Ver
-                                        </a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto">
+                        <table class="table table-report mt-4 col-span-6" id="datatable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center whitespace-nowrap">Año</th>
+                                    <th class="text-center whitespace-nowrap">Nombre</th>
+                                    <th class="text-center whitespace-nowrap">Descripcion</th>
+                                    <th class="text-center whitespace-nowrap">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="datatable-elements">
+    
+                            @if(count($data['data']) > 0)
+                                @foreach($data['data'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->periodo}}</td>
+                                    <td class="text-center">{{$value->nombre}}</td>
+                                    <td class="text-center">{{$value->descripcion}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 pdf-viewer" data-tipo="{{$value->tipo}}" data-file="{{$value->url}}" href="javascript:;">
+                                                Ver
+                                            </a>
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
 

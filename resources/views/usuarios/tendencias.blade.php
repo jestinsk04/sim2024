@@ -75,48 +75,51 @@
 
                 </div>
                 <div class="intro-y col-span-12 overflow-auto lg:overflow-visible mt-8">
-                    <table class="table table-report mt-4" id="table-data">
-                        <thead>
-                            <tr>
-                                <th class="whitespace-nowrap">Informe</th>
-                                <th class="whitespace-nowrap">Descripcion</th>
-                                <th class="text-center whitespace-nowrap">Fecha</th>
-                                <th class="text-center whitespace-nowrap">Fuente</th>
-                                <th class="text-center whitespace-nowrap">Categoria</th>
-                                
-                                <th class="text-center whitespace-nowrap">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        @if(count($data['tendencias_full']) > 0)
-                            @foreach($data['tendencias_full'] as $key => $value)
-                            <tr class="intro-x">
-                                <td class="text-center">{{$value->name}}</td>
-                                <td class="text-center">{{$value->descripcion}}</td>
-                                <td class="text-center">{{$value->fecha}}</td>
-                                <td class="text-center">{{$value->fuente}}</td>
-                                <td class="text-center">{{$value->categoria}}</td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                    @str_contains($value->url, 'app.powerbi.com')
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
-                                            @else
-
-                                            <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
-
-                                            @endstr_contains
-
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-                      
-
-
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto">
+                        <table class="table table-report mt-4" id="table-data">
+                            <thead>
+                                <tr>
+                                    <th class="whitespace-nowrap">Informe</th>
+                                    <th class="whitespace-nowrap">Descripcion</th>
+                                    <th class="text-center whitespace-nowrap">Fecha</th>
+                                    <th class="text-center whitespace-nowrap">Fuente</th>
+                                    <th class="text-center whitespace-nowrap">Categoria</th>
+                                    
+                                    <th class="text-center whitespace-nowrap">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+    
+                            @if(count($data['tendencias_full']) > 0)
+                                @foreach($data['tendencias_full'] as $key => $value)
+                                <tr class="intro-x">
+                                    <td class="text-center">{{$value->name}}</td>
+                                    <td class="text-center">{{$value->descripcion}}</td>
+                                    <td class="text-center">{{$value->fecha}}</td>
+                                    <td class="text-center">{{$value->fuente}}</td>
+                                    <td class="text-center">{{$value->categoria}}</td>
+                                    <td class="table-report__action w-56">
+                                        <div class="flex justify-center items-center">
+                                        @str_contains($value->url, 'app.powerbi.com')
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3 power-viewer"  data-file="{{$value->url}}" href="javascript:;">Ver</a>
+                                                @else
+    
+                                                <a class="btn btn-primary py-3 px-4  h-8 xl:w-32 xl:mr-3 mr-3r mr-3 pdf-viewer" data-file="{{trim(str_replace('https://sim-ep.com', '', $value->url))}}" href="javascript:;">Ver</a>
+    
+                                                @endstr_contains
+    
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                          
+    
+    
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
 

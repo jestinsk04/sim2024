@@ -52,66 +52,69 @@
         </div>
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto 2xl:overflow-visible">
-            <table class="table table-report -mt-2">
-                <thead>
-                    <tr>
-                        <th class="whitespace-nowrap">
-                            <input class="form-check-input" type="checkbox">
-                        </th>
-                        <th class="whitespace-nowrap">PRODUCT</th>
-                        <th class="whitespace-nowrap">NAME</th>
-                        <th class="whitespace-nowrap">RATING</th>
-                        <th class="text-center whitespace-nowrap">POSTED TIME</th>
-                        <th class="text-center whitespace-nowrap">STATUS</th>
-                        <th class="text-center whitespace-nowrap">ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (array_slice($fakers, 0, 9) as $faker)
-                        <tr class="intro-x">
-                            <td class="w-10">
+            <div class="overflow-x-auto">
+                <table class="table table-report -mt-2">
+                    <thead>
+                        <tr>
+                            <th class="whitespace-nowrap">
                                 <input class="form-check-input" type="checkbox">
-                            </td>
-                            <td class="!py-4">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 image-fit zoom-in">
-                                        <img alt="Midone - HTML Admin Template" class="rounded-lg border-1 border-white shadow-md tooltip" src="{{ asset('build/assets/images/' . $faker['images'][0]) }}" title="Uploaded at {{ $faker['dates'][0] }}">
-                                    </div>
-                                    <a href="" class="font-medium whitespace-nowrap ml-4">{{ $faker['products'][0]['name'] }}</a>
-                                </div>
-                            </td>
-                            <td class="whitespace-nowrap">
-                                <a class="flex items-center underline decoration-dotted" href="javascript:;">{{ $faker['users'][0]['name'] }}</a>
-                            </td>
-                            <td class="text-center">
-                                <div class="flex items-center">
-                                    <div class="flex items-center">
-                                        <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
-                                        <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
-                                        <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
-                                        <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
-                                        <i data-lucide="star" class="text-slate-400 fill-slate/30 w-4 h-4 mr-1"></i>
-                                    </div>
-                                    <div class="text-xs text-slate-500 ml-1">(4.5+)</div>
-                                </div>
-                            </td>
-                            <td class="text-center whitespace-nowrap">{{ $faker['formatted_times'][0] }}</td>
-                            <td class="w-40">
-                                <div class="flex items-center justify-center {{ $faker['true_false'][0] ? 'text-success' : 'text-danger' }}">
-                                    <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $faker['true_false'][0] ? 'Active' : 'Removed' }}
-                                </div>
-                            </td>
-                            <td class="table-report__action w-56">
-                                <div class="flex justify-center items-center">
-                                    <a class="flex items-center text-primary whitespace-nowrap" href="javascript:;">
-                                        <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> View Details
-                                    </a>
-                                </div>
-                            </td>
+                            </th>
+                            <th class="whitespace-nowrap">PRODUCT</th>
+                            <th class="whitespace-nowrap">NAME</th>
+                            <th class="whitespace-nowrap">RATING</th>
+                            <th class="text-center whitespace-nowrap">POSTED TIME</th>
+                            <th class="text-center whitespace-nowrap">STATUS</th>
+                            <th class="text-center whitespace-nowrap">ACTIONS</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (array_slice($fakers, 0, 9) as $faker)
+                            <tr class="intro-x">
+                                <td class="w-10">
+                                    <input class="form-check-input" type="checkbox">
+                                </td>
+                                <td class="!py-4">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 image-fit zoom-in">
+                                            <img alt="Midone - HTML Admin Template" class="rounded-lg border-1 border-white shadow-md tooltip" src="{{ asset('build/assets/images/' . $faker['images'][0]) }}" title="Uploaded at {{ $faker['dates'][0] }}">
+                                        </div>
+                                        <a href="" class="font-medium whitespace-nowrap ml-4">{{ $faker['products'][0]['name'] }}</a>
+                                    </div>
+                                </td>
+                                <td class="whitespace-nowrap">
+                                    <a class="flex items-center underline decoration-dotted" href="javascript:;">{{ $faker['users'][0]['name'] }}</a>
+                                </td>
+                                <td class="text-center">
+                                    <div class="flex items-center">
+                                        <div class="flex items-center">
+                                            <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
+                                            <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
+                                            <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
+                                            <i data-lucide="star" class="text-pending fill-pending/30 w-4 h-4 mr-1"></i>
+                                            <i data-lucide="star" class="text-slate-400 fill-slate/30 w-4 h-4 mr-1"></i>
+                                        </div>
+                                        <div class="text-xs text-slate-500 ml-1">(4.5+)</div>
+                                    </div>
+                                </td>
+                                <td class="text-center whitespace-nowrap">{{ $faker['formatted_times'][0] }}</td>
+                                <td class="w-40">
+                                    <div class="flex items-center justify-center {{ $faker['true_false'][0] ? 'text-success' : 'text-danger' }}">
+                                        <i data-lucide="check-square" class="w-4 h-4 mr-2"></i> {{ $faker['true_false'][0] ? 'Active' : 'Removed' }}
+                                    </div>
+                                </td>
+                                <td class="table-report__action w-56">
+                                    <div class="flex justify-center items-center">
+                                        <a class="flex items-center text-primary whitespace-nowrap" href="javascript:;">
+                                            <i data-lucide="check-square" class="w-4 h-4 mr-1"></i> View Details
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
         <!-- END: Data List -->
         <!-- BEGIN: Pagination -->

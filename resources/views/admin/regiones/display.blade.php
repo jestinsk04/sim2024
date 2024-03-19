@@ -68,19 +68,22 @@
 
         <!-- BEGIN: Data List -->
         <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-            <table class="table table-report -mt-2" style="width:100%;">
-                <thead>
-                    <tr>
-           
-                        <th class="whitespace-nowrap">Region</th>
-                        <th class="whitespace-nowrap">Pais</th>
-                        <th class="text-center whitespace-nowrap">Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-              
-                </tbody>
-            </table>
+            <div class="overflow-x-auto"> 
+                <table class="table table-report -mt-2" style="width:100%;">
+                    <thead>
+                        <tr>
+               
+                            <th class="whitespace-nowrap">Region</th>
+                            <th class="whitespace-nowrap">Pais</th>
+                            <th class="text-center whitespace-nowrap">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                  
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
         <!-- END: Data List -->
         <!-- BEGIN: Pagination -->
